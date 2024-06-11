@@ -1,0 +1,205 @@
+{
+    "connections": [
+        {
+            "connection_id": 1,
+            "name": "Oracle - Local Docker",
+            "driver": "oracle",
+            "connection_type": "Clasica",
+            "host": "localhost",
+            "service": "your_db",
+            "user": "app_user",
+            "pasw": "app_password",
+            "wallet_path": null,
+            "wallet_service": null,
+            "wallet_password": null
+        },
+        {
+            "connection_id": 2,
+            "name": "Autonomous Cloud",
+            "driver": "oracle",
+            "connection_type": "CLoud Wallet",
+            "host": "",
+            "service": "",
+            "user": "ADMIN",
+            "pasw": "Poolmejor123#*",
+            "wallet_path": "C:/Users/Johan/Downloads/Wallet_seti",
+            "wallet_service": "seti_medium",
+            "wallet_password": "Poolmejor123#*"
+        }
+    ],
+    "tables": [
+        {
+            "table_id": 1,
+            "connection_id": 1,
+            "schema_name": "APP_USER",
+            "table_name": "TABLE_A",
+            "fields": [
+                {"field_pos": 1, "field_name": "ID"},
+                {"field_pos": 2, "field_name": "NOMBRE"},
+                {"field_pos": 3, "field_name": "EMAIL_1"},
+                {"field_pos": 4, "field_name": "EMAIL_2"},
+                {"field_pos": 5, "field_name": "TELEFONO"},
+                {"field_pos": 6, "field_name": "CEDULA"}
+            ]
+        },
+        {
+            "table_id": 2,
+            "connection_id": 1,
+            "schema_name": "APP_USER",
+            "table_name": "TABLE_B",
+            "fields": [
+                {"field_pos": 1, "field_name": "ID"},
+                {"field_pos": 2, "field_name": "NOMBRE"},
+                {"field_pos": 3, "field_name": "EMAIL_1"},
+                {"field_pos": 4, "field_name": "EMAIL_2"},
+                {"field_pos": 5, "field_name": "TELEFONO"},
+                {"field_pos": 6, "field_name": "CEDULA"},
+                {"field_pos": 7, "field_name": "UUID"}
+            ]
+        },
+        {
+            "table_id": 3,
+            "connection_id": 1,
+            "schema_name": "APP_USER",
+            "table_name": "TABLE_C",
+            "fields": [
+                {"field_pos": 1, "field_name": "ID"},
+                {"field_pos": 2, "field_name": "NOMBRE"},
+                {"field_pos": 3, "field_name": "EMAIL_1"},
+                {"field_pos": 4, "field_name": "EMAIL_2"},
+                {"field_pos": 5, "field_name": "TELEFONO"},
+                {"field_pos": 6, "field_name": "CEDULA"},
+                {"field_pos": 7, "field_name": "UUID"}
+            ]
+        },
+        {
+            "table_id": 4,
+            "connection_id": 2,
+            "schema_name": "SYS",
+            "table_name": "DUAL",
+            "fields": [
+                {"field_pos": 1, "field_name": "DUMMY"}
+            ]
+        }
+    ],
+    "transforms": [
+        {
+            "transform_id": 1,
+            "transform_name": "Ofusca TABLE_A a TABLE_B",
+            "source_id": 1,
+            "target_id": 2,
+            "block_size": 10,
+            "truncate": true,
+            "fields": [
+                {
+                    "source_pos": 1,
+                    "target_pos": 1,
+                    "algorithm": "XOR",
+                    "key_1": "587",
+                    "key_2": "17"
+                },
+                {
+                    "source_pos": 2,
+                    "target_pos": 2,
+                    "algorithm": "VIGENERE-CIPHER-ENCODE",
+                    "key_1": "mysecretkey",
+                    "key_2": ""
+                },
+                {
+                    "source_pos": 3,
+                    "target_pos": 3,
+                    "algorithm": "X_MAIL",
+                    "key_1": "*",
+                    "key_2": "seti.ofuscado.com"
+                },
+                {
+                    "source_pos": 4,
+                    "target_pos": 4,
+                    "algorithm": "VIGENERE-CIPHER-MAIL-ENCODE",
+                    "key_1": "patata",
+                    "key_2": ""
+                },
+                {
+                    "source_pos": 5,
+                    "target_pos": 5,
+                    "algorithm": null,
+                    "key_1": "",
+                    "key_2": ""
+                },
+                {
+                    "source_pos": 6,
+                    "target_pos": 6,
+                    "algorithm": "RAND_DIGITS",
+                    "key_1": "",
+                    "key_2": ""
+                },
+                {
+                    "source_pos": null,
+                    "target_pos": 7,
+                    "algorithm": "UUID",
+                    "key_1": "",
+                    "key_2": ""
+                }
+            ]
+        },
+        {
+            "transform_id": 2,
+            "transform_name": "Desenfusca la TABLE_B a TABLE_C",
+            "source_id": 2,
+            "target_id": 3,
+            "block_size": 10,
+            "truncate": true,
+            "fields": [
+                {
+                    "source_pos": 1,
+                    "target_pos": 1,
+                    "algorithm": "XOR",
+                    "key_1": "587",
+                    "key_2": "17"
+                },
+                {
+                    "source_pos": 2,
+                    "target_pos": 2,
+                    "algorithm": "VIGENERE-CIPHER-DECODE",
+                    "key_1": "mysecretkey",
+                    "key_2": ""
+                },
+                {
+                    "source_pos": 3,
+                    "target_pos": 3,
+                    "algorithm": "X_MAIL",
+                    "key_1": "*",
+                    "key_2": "seti.ofuscado.com"
+                },
+                {
+                    "source_pos": 4,
+                    "target_pos": 4,
+                    "algorithm": "VIGENERE-CIPHER-MAIL-DECODE",
+                    "key_1": "patata",
+                    "key_2": ""
+                },
+                {
+                    "source_pos": 5,
+                    "target_pos": 5,
+                    "algorithm": null,
+                    "key_1": "",
+                    "key_2": ""
+                },
+                {
+                    "source_pos": 6,
+                    "target_pos": 6,
+                    "algorithm": null,
+                    "key_1": "",
+                    "key_2": ""
+                },
+                {
+                    "source_pos": 7,
+                    "target_pos": 7,
+                    "algorithm": null,
+                    "key_1": "",
+                    "key_2": ""
+                }
+            ]
+        }
+    ]
+}

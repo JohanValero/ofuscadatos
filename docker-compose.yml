@@ -1,0 +1,23 @@
+services:
+  oracle-db:
+    image: gvenzl/oracle-xe
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    environment:
+      - ORACLE_PASSWORD=your_password  # Define la contraseña del SYS y SYSTEM
+      - APP_USER=app_user              # Opcional: Nombre del usuario de la aplicación
+      - APP_USER_PASSWORD=app_password # Opcional: Contraseña del usuario de la aplicación
+      - ORACLE_DATABASE=your_db        # Opcional: Nombre de una base de datos adicional a crear
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+    healthcheck:
+      test: ["CMD", "sqlplus", "-S", "localhost", "system/your_password"]
+      interval: 1m
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+volumes:
+  oracle-data:
+    driver: local
