@@ -868,7 +868,9 @@ def ui_tab3_execute_transformation():
                 cu.execute(f"TRUNCATE TABLE {info_table_target['schema_name']}.{info_table_target['table_name']} DROP STORAGE")
             for x in get_data_block(info_table_source, info_transformation["block_size"]):
                 rt = [process_row(ui_transf_info["fields"], row) for row in x]
-                cu.executemany(f"INSERT INTO {info_table_target['schema_name']}.{info_table_target['table_name']} ({insert_fields}) VALUES ({bind_fields})", rt)
+                sql : str = f"INSERT INTO {info_table_target['schema_name']}.{info_table_target['table_name']} ({insert_fields}) VALUES ({bind_fields})"
+                print("sql:", sql)
+                cu.executemany(sql, rt)
                 conn_target.commit()
 
 ### CONFIGURE UI ELEMENTS

@@ -1,68 +1,60 @@
-CREATE TABLE TABLE_A (
-    ID NUMBER,
+CREATE TABLE TB_USUARIOS (
+    PK_USUARIO INTEGER,
+    FK_CIUDAD INTEGER,
     NOMBRE VARCHAR2(500),
-    Email_1 VARCHAR2(500),
-    Email_2 VARCHAR2(500),
-    Telefono VARCHAR2(50),
-    Cedula VARCHAR2(50),
-    CONSTRAINT pk_table_a PRIMARY KEY (ID)
+    APELLIDO VARCHAR(500),
+    EMAIL VARCHAR(500),
+    CEDULA INTEGER
 );
 
-CREATE TABLE TABLE_B (
-    ID NUMBER,
-    NOMBRE VARCHAR2(500),
-    Email_1 VARCHAR2(500),
-    Email_2 VARCHAR2(500),
-    Telefono VARCHAR2(50),
-    Cedula VARCHAR2(50),
-    UUID RAW(16),
-    CONSTRAINT pk_table_b PRIMARY KEY (ID)
+CREATE TABLE TB_CIUDAD (
+    PK_CIUDAD INTEGER,
+    PAIS VARCHAR(100),
+    NOMBRE VARCHAR(100)
 );
 
-CREATE TABLE TABLE_C (
-    ID NUMBER,
+CREATE TABLE TB_USUARIOS_OFUSCADOS (
+    PK_USUARIO INTEGER,
+    FK_CIUDAD INTEGER,
     NOMBRE VARCHAR2(500),
-    Email_1 VARCHAR2(500),
-    Email_2 VARCHAR2(500),
-    Telefono VARCHAR2(50),
-    Cedula VARCHAR2(50),
-    UUID RAW(16),
-    CONSTRAINT pk_table_c PRIMARY KEY (ID)
+    APELLIDO VARCHAR(500),
+    EMAIL VARCHAR(500),
+    CEDULA INTEGER,
+    UUID RAW(16)
 );
 
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (1, 'Johan Pool', 'Johan.Pool.2024@seti.com.co', 'Johan.Pool.seti@microsoft.com.co', '323 593 3317', '1108789359');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (2, 'Ana Torres', 'Ana.Torres.2024@seti.com.co', 'Ana.Torres.seti@microsoft.com.co', '325 593 2317', '1108789360');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (3, 'Carlos Gomez', 'Carlos.Gomez.2024@seti.com.co', 'Carlos.Gomez.seti@microsoft.com.co', '324 593 3318', '1108789361');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (4, 'Diana Ruiz', 'Diana.Ruiz.2024@seti.com.co', 'Diana.Ruiz.seti@microsoft.com.co', '323 593 3319', '1108789362');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (5, 'Eduardo Pérez', 'Eduardo.Perez.2024@seti.com.co', 'Eduardo.Perez.seti@microsoft.com.co', '322 593 3320', '1108789363');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (6, 'Fabiola Quintero', 'Fabiola.Quintero.2024@seti.com.co', 'Fabiola.Quintero.seti@microsoft.com.co', '321 593 3321', '1108789364');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (7, 'Gustavo Morales', 'Gustavo.Morales.2024@seti.com.co', 'Gustavo.Morales.seti@microsoft.com.co', '320 593 3322', '1108789365');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (8, 'Hilda Castro', 'Hilda.Castro.2024@seti.com.co', 'Hilda.Castro.seti@microsoft.com.co', '319 593 3323', '1108789366');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (9, 'Iván López', 'Ivan.Lopez.2024@seti.com.co', 'Ivan.Lopez.seti@microsoft.com.co', '318 593 3324', '1108789367');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (10, 'Julia Martínez', 'Julia.Martinez.2024@seti.com.co', 'Julia.Martinez.seti@microsoft.com.co', '317 593 3325', '1108789368');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (11, 'Kevin Ramírez', 'Kevin.Ramirez.2024@seti.com.co', 'Kevin.Ramirez.seti@microsoft.com.co', '316 593 3326', '1108789369');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (12, 'Lorena Sánchez', 'Lorena.Sanchez.2024@seti.com.co', 'Lorena.Sanchez.seti@microsoft.com.co', '315 593 3327', '1108789370');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (13, 'Mario Vargas', 'Mario.Vargas.2024@seti.com.co', 'Mario.Vargas.seti@microsoft.com.co', '314 593 3328', '1108789371');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (14, 'María Martínez', 'maria.martinez@example.com', 'maria.martinez.personal@example.com', '555-555-5555', '1234567890');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (15, 'John Smith', 'john.smith@example.com', 'jsmith@example.com', '555-123-4567', '0987654321');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (16, 'Ana García', 'ana.garcia@example.com', 'ana.garcia.personal@example.com', '555-987-6543', '1357924680');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (17, 'Michael Johnson', 'michael.johnson@example.com', 'mjohnson@example.com', '555-111-2222', '2468013579');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (18, 'Emily Brown', 'emily.brown@example.com', 'ebrown@example.com', '555-333-4444', '3692581470');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (19, 'Daniel Rodríguez', 'daniel.rodriguez@example.com', 'drodriguez@example.com', '555-555-7777', '1472583690');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (20, 'Jessica Lee', 'jessica.lee@example.com', 'jlee@example.com', '555-888-9999', '2583691470');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (21, 'David García', 'david.garcia@example.com', 'dgarcia@example.com', '555-000-1111', '3691472580');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (22, 'Sarah Martinez', 'sarah.martinez@example.com', 'smartinez@example.com', '555-222-3333', '7894561230');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (23, 'Christopher Taylor', 'christopher.taylor@example.com', 'ctaylor@example.com', '555-444-5555', '3691472580');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (24, 'Emma Wilson', 'emma.wilson@example.com', 'ewilson@example.com', '555-666-7777', '7896541230');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (25, 'James Anderson', 'james.anderson@example.com', 'janderson@example.com', '555-888-9999', '9638527410');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (26, 'Olivia Moore', 'olivia.moore@example.com', 'omoore@example.com', '555-000-1111', '2583691470');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (27, 'Michael Taylor', 'michael.taylor@example.com', 'mtaylor@example.com', '555-222-3333', '1472583690');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (28, 'Sophia Johnson', 'sophia.johnson@example.com', 'sjohnson@example.com', '555-444-5555', '3691472580');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (29, 'Daniel Brown', 'daniel.brown@example.com', 'dbrown@example.com', '555-666-7777', '7896541230');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (30, 'Isabella Anderson', 'isabella.anderson@example.com', 'ianderson@example.com', '555-888-9999', '9638527410');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (31, 'Alexander Wilson', 'alexander.wilson@example.com', 'awilson@example.com', '555-000-1111', '2583691470');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (32, 'Ava Garcia', 'ava.garcia@example.com', 'agarcia@example.com', '555-222-3333', '1472583690');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (33, 'Ethan Taylor', 'ethan.taylor@example.com', 'etaylor@example.com', '555-444-5555', '3691472580');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (34, 'Mia Moore', 'mia.moore@example.com', 'mmoore@example.com', '555-666-7777', '7896541230');
-INSERT INTO TABLE_A (ID, NOMBRE, Email_1, Email_2, Telefono, Cedula) VALUES (35, 'Noah Johnson', 'noah.johnson@example.com', 'njohnson@example.com', '555-888-9999', '9638527410');
-COMMIT;
+CREATE TABLE TB_CIUDAD_OFUSCADA (
+    PK_CIUDAD INTEGER,
+    PAIS VARCHAR(100),
+    NOMBRE VARCHAR(100)
+);
+
+INSERT INTO TB_CIUDAD (PK_CIUDAD, PAIS, NOMBRE) VALUES (1, 'COLOMBIA', 'MEDELLÍN');
+INSERT INTO TB_CIUDAD (PK_CIUDAD, PAIS, NOMBRE) VALUES (2, 'COLOMBIA', 'BOGOTÁ');
+INSERT INTO TB_CIUDAD (PK_CIUDAD, PAIS, NOMBRE) VALUES (3, 'COLOMBIA', 'CALI');
+
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (1, 1, 'Juan', 'Pérez', 'juan.perez@email.com', 123456789);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (2, 1, 'Laura', 'González', 'laura.gonzalez@email.com', 987654321);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (3, 2, 'Carlos', 'Martínez', 'carlos.martinez@email.com', 123987654);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (4, 2, 'Sofía', 'López', 'sofia.lopez@email.com', 567890123);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (5, 3, 'Alejandro', 'Ramírez', 'alejandro.ramirez@email.com', 765432189);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (6, 3, 'María', 'Fernandez', 'maria.fernandez@email.com', 234567890);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (7, 1, 'Roberto', 'Garcia', 'roberto.garcia@email.com', 345678901);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (8, 1, 'Carmen', 'Ruiz', 'carmen.ruiz@email.com', 456789012);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (9, 2, 'Antonio', 'Morales', 'antonio.morales@email.com', 567890123);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (10, 2, 'Patricia', 'Jimenez', 'patricia.jimenez@email.com', 678901234);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (11, 3, 'Jorge', 'Moreno', 'jorge.moreno@email.com', 789012345);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (12, 1, 'Lucía', 'Mendez', 'lucia.mendez@email.com', 890123456);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (13, 1, 'Felipe', 'Gutierrez', 'felipe.gutierrez@email.com', 901234567);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (14, 2, 'Daniela', 'Castillo', 'daniela.castillo@email.com', 123456788);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (15, 2, 'Manuel', 'López', 'manuel.lopez@email.com', 234567899);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (16, 3, 'Andrea', 'Sánchez', 'andrea.sanchez@email.com', 345678910);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (17, 1, 'Oscar', 'Martínez', 'oscar.martinez@email.com', 456789021);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (18, 1, 'Silvia', 'Pérez', 'silvia.perez@email.com', 567890132);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (19, 2, 'Miguel', 'Diaz', 'miguel.diaz@email.com', 678901243);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (20, 2, 'Sara', 'Morales', 'sara.morales@email.com', 789012354);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (21, 3, 'Carlos', 'Gómez', 'carlos.gomez@email.com', 890123465);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (22, 1, 'Ana', 'Ortiz', 'ana.ortiz@email.com', 901234576);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (23, 1, 'Francisco', 'Ruiz', 'francisco.ruiz@email.com', 123456787);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (24, 2, 'Verónica', 'García', 'veronica.garcia@email.com', 234567898);
+INSERT INTO TB_USUARIOS (PK_USUARIO, FK_CIUDAD, NOMBRE, APELLIDO, EMAIL, CEDULA) VALUES (25, 3, 'Esteban', 'Quito', 'esteban.quito@email.com', 345678909);
