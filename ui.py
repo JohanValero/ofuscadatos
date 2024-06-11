@@ -505,7 +505,7 @@ def ui_load_excel_configuration() -> None:
         df = pd.read_excel(file_path, sheet_name="connections")
         df = df.where(pd.notna(df), None)
         gCONFIG["connections"] = df.to_dict('records')
-
+        
         df = pd.read_excel(file_path, sheet_name="tables")
         df = df.where(pd.notna(df), None)
         gCONFIG["tables"] = df.to_dict('records')
@@ -645,8 +645,8 @@ def ui_tab1_click_tree(event = None) -> None:
         input_name.insert(0, ci["name"])
         input_user.insert(0, ci["user"])
         input_pasw.insert(0, ci["pasw"])
-        input_host.insert(0, ci["host"])
-        input_serv.insert(0, ci["service"])
+        input_host.insert(0, ci["host"] if ci["host"] is not None else "")
+        input_serv.insert(0, ci["service"] if ci["service"] is not None else "")
         input_wpath.insert(0, ci["wallet_path"] if ci["wallet_path"] is not None else "")
         input_wserv.insert(0, ci["wallet_service"] if ci["wallet_service"] is not None else "")
         input_wpasw.insert(0, ci["wallet_password"] if ci["wallet_password"] is not None else "")
